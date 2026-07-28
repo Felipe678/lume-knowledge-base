@@ -22,13 +22,21 @@ Backend/login/sync, notificações, exceções de recorrência, drag-and-drop na
 
 Os 13 passos de construção e os 33 edge cases numerados estão no plano de implementação (sessão de fundação, ver diário 2026-07-28).
 
+## v2 — MVP 0.0.2 (decisão e construção 2026-07-28)
+
+Quatro ondas de requisitos do Felipe transformaram o produto:
+
+1. **Objetivo é a funcionalidade central** — GoalWizard de 6 passos (o quê / por quê / prioridade / estimativa de horas / etapas / quando / encaixes sugeridos pela prioridade: alta = 5×60min, média = 3×45min, baixa = 2×30min). **Fila de objetivos** (`afterGoalId`): começam após outro concluir, com celebração e ativação guiada no Foco.
+2. **Modo Foco** (`/foco`) — temporizador regressivo MM:SS da atividade atual; popup animado de transição ao término pedindo permissão para prosseguir.
+3. **Home em cards** (`/`) — grid estilo menu de apps: Foco atual, Progresso diário, Progresso total, Objetivos, Plano semanal, Plano mensal, Conquistas, Perfil, Configurações. Animações com Framer Motion. Overlay de detalhe por objetivo: Hoje/Semana/Mês, horas investidas vs estimadas, projeção. Layout pizza/barra alternável.
+4. **Conquistas & Premiações** — galeria de objetivos concluídos, 13 medalhas automáticas (streaks 7/21/66/100, semana perfeita, horas...), premiações configuráveis com gatilhos (concluir objetivo / sequência / horas / semana perfeita) e resgate com histórico.
+
 ## Status de construção (2026-07-28)
 
-| Passo | Status |
+| Entrega | Status |
 |---|---|
-| 1–12. Bootstrap → export/import | ✅ concluídos |
-| 13. PWA | ✅ configurado (autoUpdate, fullscreen, ícones) |
-| 13b. Deploy Vercel | pendente (repo pronto: `vercel.json` incluso — conectar o repo GitHub na Vercel) |
+| MVP v1 (branch `mvp/mvp-0.0.1`) | ✅ no GitHub |
+| v2 completo (branch `mvp/mvp-0.0.2`) | ✅ PR #1 aberto para `main` |
+| Testes | ✅ 74 unitários no domínio + E2E headless sem erros |
+| Deploy Vercel | pendente (conectar o repo na Vercel; `vercel.json` pronto) |
 | Teste físico no tablet | pendente |
-
-Verificação feita: 39 testes unitários do domínio passando; roteiro E2E dirigido em navegador headless (seed → grade → painel em tempo real → time travel → check-in acendendo a chama → virada de dia automática com streak preservado), sem erros de console.

@@ -18,6 +18,26 @@ Dia sem blocos agendados não quebra nem incrementa o streak. Hoje vazio não ze
 
 `todayISO()` formata manualmente a data local; proibido `toISOString().slice(0,10)` (UTC quebra à noite no fuso BR — 21h de terça já seria "quarta").
 
+## Schema v2 com migração automática (decisão 2026-07-28)
+
+`schemaVersion: 2` adiciona prioridade/estimativa/fila nos objetivos, premiações (`rewards`) e perfil. Migração pura v1→v2 no persist (mesma chave `lume:v1`) e no import de backup (aceita v1 e v2). **Por quê:** backups v1 do Felipe continuam válidos — check-ins são sagrados (princípio 7).
+
+## Status de objetivo sempre derivado (decisão 2026-07-28)
+
+`archived | queued | completed | active` deriva de `archivedAt`/`afterGoalId`/etapas — nunca persistido. Ativar da fila = apagar `afterGoalId`. Bloqueador concluído, arquivado ou inexistente libera a fila. **Por quê:** campo de status persistido dessincroniza; dado quebrado nunca pode prender o usuário.
+
+## Premiações com unlock persistido, medalhas derivadas (decisão 2026-07-28)
+
+Premiações do usuário carimbam `unlockedAt` uma única vez (reconciliação após check-in/etapa). Medalhas automáticas são 100% derivadas dos dados. **Por quê:** prêmio destravado não pode "des-destravar" ao editar dados; medalhas sem estado não têm bug de sincronização.
+
+## Framer Motion como lib de animação (decisão 2026-07-28)
+
++~56 KB gzip aceitos pela centralidade da gamificação. Regra: animações curtas (<400ms); o modo Foco só anima chama e popups (tela ambiente não pisca).
+
+## Preferências de aparelho fora do AppState (decisão 2026-07-28)
+
+`lume:ui` (pizza/barra, tela inicial) em chave própria, fora do export/import. **Por quê:** o tablet da parede e o desktop podem divergir; backup carrega dados do usuário, não do aparelho.
+
 ## Check-in de qualquer bloco de hoje (decisão 2026-07-28)
 
 Upcoming, current ou missed — terminou antes ou fez atrasado, conta igual. Retroativo de outros dias fica para v2. **Por quê:** o app pune a inconstância, não a vida real.
