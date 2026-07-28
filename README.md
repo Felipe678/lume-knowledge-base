@@ -22,5 +22,6 @@ O código do app vive em repo separado: `J:\Projetos\lume`.
 - **Meta ativa:** MVP funcional rodando num tablet na parede de casa, usado pelo Felipe todos os dias
 - **Produto:** Lume 🔥 (app web React + Vite, PWA, modo Painel ambiente)
 - **Empresa/marca:** Lume Labs (marca nova de software, separada da Vertex Studio Lab)
+- **MVP:** construído e no GitHub (`github.com/Felipe678/lume`) — 3 telas, 39 testes, PWA
 - **Decisões pendentes:** registro de domínio (lume.app / lumelabs.com.br), identidade visual definitiva da chama
-- **Próxima frente:** construir o MVP (13 passos em `02-produto/escopo-mvp.md`)
+- **Próxima frente:** deploy na Vercel + teste físico no tablet (Fase 1 → critério: 2 semanas de uso diário)

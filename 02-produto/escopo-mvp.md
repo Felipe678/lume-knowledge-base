@@ -22,9 +22,13 @@ Backend/login/sync, notificações, exceções de recorrência, drag-and-drop na
 
 Os 13 passos de construção e os 33 edge cases numerados estão no plano de implementação (sessão de fundação, ver diário 2026-07-28).
 
-## Status de construção
+## Status de construção (2026-07-28)
 
 | Passo | Status |
 |---|---|
-| 1. Bootstrap Vite + Tailwind | em andamento |
-| 2–13 | pendente |
+| 1–12. Bootstrap → export/import | ✅ concluídos |
+| 13. PWA | ✅ configurado (autoUpdate, fullscreen, ícones) |
+| 13b. Deploy Vercel | pendente (repo pronto: `vercel.json` incluso — conectar o repo GitHub na Vercel) |
+| Teste físico no tablet | pendente |
+
+Verificação feita: 39 testes unitários do domínio passando; roteiro E2E dirigido em navegador headless (seed → grade → painel em tempo real → time travel → check-in acendendo a chama → virada de dia automática com streak preservado), sem erros de console.
