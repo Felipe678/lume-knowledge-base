@@ -49,6 +49,6 @@ Quatro ondas de requisitos do Felipe transformaram o produto:
 | v2 (branch `mvp/mvp-0.0.2`) | ✅ PR #1 aberto para `main` |
 | v3 (branch `mvp/mvp-0.0.3`) | ✅ PR #2 aberto para `main` |
 | Testes | ✅ 103 no domínio + 7 no server + E2E headless sem erros |
-| MongoDB Atlas | pendente (criar cluster free e preencher `server/.env`; até lá: `dev:memory`) |
+| MongoDB Atlas | ✅ cluster criado e conectado (2026-07-29) — smoke completo: register/login/sync/409 |
 | Deploy Vercel + API | pendente |
 | Teste físico no tablet | pendente |
