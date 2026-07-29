@@ -31,12 +31,24 @@ Quatro ondas de requisitos do Felipe transformaram o produto:
 3. **Home em cards** (`/`) — grid estilo menu de apps: Foco atual, Progresso diário, Progresso total, Objetivos, Plano semanal, Plano mensal, Conquistas, Perfil, Configurações. Animações com Framer Motion. Overlay de detalhe por objetivo: Hoje/Semana/Mês, horas investidas vs estimadas, projeção. Layout pizza/barra alternável.
 4. **Conquistas & Premiações** — galeria de objetivos concluídos, 13 medalhas automáticas (streaks 7/21/66/100, semana perfeita, horas...), premiações configuráveis com gatilhos (concluir objetivo / sequência / horas / semana perfeita) e resgate com histórico.
 
-## Status de construção (2026-07-28)
+## v3 — MVP 0.0.3 (feedback de uso real, 2026-07-29)
+
+1. **Foco manual com confirmação**: clicar em bloco pendente/perdido abre modal ("Iniciar? Leva X min") e vira o foco atual com timer próprio; troca de foco vigente é confirmada. Barra de progresso decorrido + checklist de etapas no Foco.
+2. **Rotina de trabalho**: semanal fixa e escala cíclica com âncora (12x36, 24x72, plantão noturno virando o dia); sugestões de encaixe desviam do trabalho e o FitEditor avisa conflitos.
+3. **Rotina (estilo de vida)**: blocos sem objetivo são "Rotina" — separados na timeline/Home, quick-add com 13 sugestões na Grade.
+4. **Navegação contínua**: Home → rolar para baixo revela o Foco (scroll-snap); `/foco` segue para o kiosk.
+5. **Alertas locais**: voz pt-BR + notificação com frases motivacionais (Alexa → backlog).
+6. **Fechamento do dia**: resumo + frase de transição + preview de amanhã.
+7. **Conta + sync**: server Express+Mongo (JWT, tenant uuid), local-first com last-write-wins e conflito 409; modo convidado continua integral.
+
+## Status de construção (2026-07-29)
 
 | Entrega | Status |
 |---|---|
 | MVP v1 (branch `mvp/mvp-0.0.1`) | ✅ no GitHub |
-| v2 completo (branch `mvp/mvp-0.0.2`) | ✅ PR #1 aberto para `main` |
-| Testes | ✅ 74 unitários no domínio + E2E headless sem erros |
-| Deploy Vercel | pendente (conectar o repo na Vercel; `vercel.json` pronto) |
+| v2 (branch `mvp/mvp-0.0.2`) | ✅ PR #1 aberto para `main` |
+| v3 (branch `mvp/mvp-0.0.3`) | ✅ PR #2 aberto para `main` |
+| Testes | ✅ 103 no domínio + 7 no server + E2E headless sem erros |
+| MongoDB Atlas | pendente (criar cluster free e preencher `server/.env`; até lá: `dev:memory`) |
+| Deploy Vercel + API | pendente |
 | Teste físico no tablet | pendente |

@@ -2,6 +2,22 @@
 
 Decisões com data no título. Nunca apagar — reverter com nova entrada e o porquê.
 
+## Sync local-first com last-write-wins (decisão 2026-07-29)
+
+App continua 100% funcional offline/convidado; logado, o AppState inteiro sincroniza (PUT debounced com `baseUpdatedAt`). Conflito (outro aparelho salvou depois) → 409 → backup local + adota a versão do servidor + aviso visível. Primeira sincronização com dados dos dois lados → o usuário escolhe (nunca mesclar automaticamente). **Por quê:** o tablet da parede não pode depender de internet; para 1 usuário com poucos aparelhos, LWW com aviso é simples e suficiente — merge/CRDT fica para quando doer.
+
+## Sessão de foco manual por aparelho (decisão 2026-07-29)
+
+`manualFocus` vive em `lume:session` (fora do AppState/export/sync): sobrevive a reload do tablet, não vaza para outros aparelhos. Status sempre derivado (`resolveFocus`): sessão de bloco excluído/concluído/dia diferente é descartada sozinha. **Por quê:** foco é estado do aparelho, não do usuário.
+
+## Trabalho noturno como segmentos por data (decisão 2026-07-29)
+
+`end <= start` = turno vira o dia; o domínio responde "quais faixas ocupam ESTA data" (0–2 segmentos). Escala cíclica usa módulo normalizado (âncora no futuro funciona). **Por quê:** plantão 19h–7h é o caso real de quem vive de escala; tratar por data elimina os bugs clássicos de "que dia é o turno".
+
+## Alertas locais antes de Alexa (decisão 2026-07-29)
+
+SpeechSynthesis pt-BR + Notification API com frases motivacionais determinísticas (âncora anti-repetição pós-reload). Skill Alexa própria é projeto à parte → backlog. **Por quê:** 90% do valor com 5% do custo; sem dependência de nuvem de terceiros no MVP.
+
 ## Instâncias derivadas, não materializadas (decisão 2026-07-28)
 
 A grade (`TimeBlock[]`) é a fonte da verdade da recorrência. O "dia de hoje" é calculado em memória; só check-ins são persistidos (`"AAAA-MM-DD:blockId"`). **Por quê:** elimina jobs de materialização, migrações de instância e estados fantasma; o custo (editar a grade reinterpreta o passado) é aceitável porque o streak deriva só de check-ins.

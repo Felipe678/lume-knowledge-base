@@ -24,6 +24,14 @@ Repo do app: `J:\Projetos\lume` · GitHub: `github.com/Felipe678/lume`
 - **Views** (`src/features/`): `painel/` (kiosk, rota `/`), `grade/`, `objetivos/`.
 - Wake Lock API no Painel; export/import JSON com `validateAppState`; listener de `storage` para múltiplas abas.
 
+## Backend (v3, 2026-07-29)
+
+- `server/` no próprio repo: Express 5 + Mongoose + bcryptjs + JWT (30d) + CORS restrito.
+- MongoDB **Atlas free** (decisão) — `server/.env` a partir do `.env.example`; sem Atlas, `npm run dev:memory` sobe com Mongo em memória.
+- Rotas: `POST /auth/register|login`, `GET/PUT /state` (LWW com `baseUpdatedAt`; conflito → 409 com a versão do servidor). Tenant = `userId` uuid.
+- Testes: supertest + mongodb-memory-server. Scripts raiz: `dev:server`, `test:server`.
+- **Fase futura registrada:** deploy da API (Render/Railway), refresh tokens, microserviços.
+
 ## Fora do MVP por decisão
 
-Backend (localStorage primeiro), lib de componentes (Painel é 100% custom), i18n (PT-BR fixo).
+Lib de componentes (Painel é 100% custom), i18n (PT-BR fixo), merge automático de sync (CRDT), skill Alexa própria.

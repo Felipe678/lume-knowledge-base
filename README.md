@@ -22,8 +22,8 @@ O código do app vive em repo separado: `J:\Projetos\lume`.
 - **Meta ativa:** MVP funcional rodando num tablet na parede de casa, usado pelo Felipe todos os dias
 - **Produto:** Lume 🔥 (app web React + Vite, PWA, modo Painel ambiente)
 - **Empresa/marca:** Lume Labs (marca nova de software, separada da Vertex Studio Lab)
-- **MVP v1:** branch `mvp/mvp-0.0.1` no GitHub (`github.com/Felipe678/lume`)
-- **v2 (MVP 0.0.2):** PR #1 aberto para `main` — Home em cards, Modo Foco com timer, assistente de objetivos com prioridade/fila, overlay de progresso, Conquistas & Premiações, Framer Motion; 74 testes + E2E
-- **Fluxo git definido:** GitFlow adaptado (`mvp/`, `rlse/`, `fix/`, `hotfix/`, PR para main) — ver `04-tecnologia/fluxo-git.md`
-- **Decisões pendentes:** registro de domínio (lume.app / lumelabs.com.br), identidade visual definitiva da chama
-- **Próxima frente:** merge do PR #1 → deploy na Vercel → teste físico no tablet (Fase 1 → critério: 2 semanas de uso diário)
+- **MVP v1:** branch `mvp/mvp-0.0.1` · **v2:** PR #1 · **v3:** PR #2 (`github.com/Felipe678/lume`)
+- **v3 (MVP 0.0.3, feedback de uso real):** foco manual com confirmação + timer + checklist, rotina de trabalho (12x36/plantões), Rotina vs Objetivos, Home contínua (scroll → Foco), alertas de voz/notificação, fechamento do dia, **login + sync MongoDB local-first** (110 testes no total)
+- **Fluxo git:** GitFlow adaptado (`mvp/`, `rlse/`, `fix/`, `hotfix/`, PR para main) — ver `04-tecnologia/fluxo-git.md`
+- **Decisões pendentes:** registro de domínio, identidade visual definitiva da chama
+- **Próxima frente:** revisar/mergear PRs #1 e #2 → criar cluster no MongoDB Atlas (`server/.env`) → deploy (Vercel + API) → teste físico no tablet (Fase 1 → 2 semanas de uso diário)

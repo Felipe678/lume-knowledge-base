@@ -2,6 +2,15 @@
 
 Tudo que ficou fora do MVP ou surgir depois. Nada aqui entra sem passar pelo princípio 1 ("o Painel é o produto") e pelo critério de saída da fase atual.
 
+## Cortado do v3 (2026-07-29)
+
+- **Skill Alexa própria** (anúncio de atividades na Alexa; avaliar também a skill "Notify Me" como atalho)
+- Merge inteligente de sync (CRDT/por entidade) — hoje é last-write-wins com aviso
+- Rotação que PULA plantões automaticamente nos encaixes (hoje só avisa a fração de conflito)
+- Sombra do horário de trabalho desenhada na Grade
+- Check-in retroativo de dias anteriores
+- Refresh tokens, verificação de e-mail, deploy da API (Render/Railway), microserviços
+
 ## Cortado do MVP (candidatos naturais da v2)
 
 - Backend + login + sync multi-dispositivo (tablet + celular)
